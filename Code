@@ -1,0 +1,16 @@
+library(gplots)
+library(tidyverse)
+mydata <- read.table("ovo.txt")
+
+mydata1 = (mydata %>% 
+  rename(
+    Bacteria = V1,
+    Fungus = V2,
+    Other = V4,
+    Mites = V3))
+
+mymatrix <- data.matrix(mydata2)
+
+yp <- colorRampPalette(c("White", "Red"))
+heatmap.2(mymatrix, col = yp, main = "Plant Tissue Culture", 
+          margins = c(10,12))
