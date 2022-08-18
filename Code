@@ -1,15 +1,15 @@
 library(gplots)
 library(tidyverse)
-mydata <- read.table("ovo.txt")
 
-mydata1 = (mydata %>% 
-  rename(
-    Bacteria = V1,
-    Fungus = V2,
-    Other = V4,
-    Mites = V3))
+df <- data.frame(Bacteria = c(9,0,0,0,0,1,7,1,2,15,5,18,4,2,7,17,3),
+                 Fungi = c(19,15,3,4,5,35,36,45,53,72,47,107,69,40,39,69,65),
+                 Mites = c(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+                 Other = c(1,0,2,0,0,0,2,2,0,3,1,2,0,7,2,1,0))
 
-mymatrix <- data.matrix(mydata2)
+rownames(df) <- c("O002","T128","T126","T127","D216.1","D216.2","D217","D218","D219","D220","D221","D222","D223","D224","D225","D226","O001"
+)
+
+mymatrix <- data.matrix(df)
 
 yp <- colorRampPalette(c("White", "Red"))
 heatmap.2(mymatrix, col = yp, main = "Plant Tissue Culture", 
